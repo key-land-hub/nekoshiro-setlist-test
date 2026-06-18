@@ -1,0 +1,316 @@
+/* style.css */
+
+body {
+  margin:0;
+  background:#09090b;
+  color:#f4f4f5;
+  font-family:Arial,sans-serif;
+}
+
+.sticky-header{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background: rgba(9,9,11,.92);
+  backdrop-filter: blur(12px);
+
+  padding-top: 12px;
+  padding-bottom: 16px;
+
+  border-bottom: 1px solid #27272a;
+}
+
+.container {
+  max-width:1400px;
+  margin:auto;
+  padding:32px;
+}
+
+h1 {
+  font-size:56px;
+  margin-bottom:8px;
+}
+
+.subtitle {
+  color:#a1a1aa;
+  margin-bottom:24px;
+}
+
+.account-bar{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:20px;
+  flex-wrap:wrap;
+}
+
+#userInfo{
+  color:#d4d4d8;
+}
+
+#loginBtn,
+#logoutBtn{
+  padding:10px 16px;
+  border:none;
+  border-radius:14px;
+  background:#27272a;
+  color:white;
+  cursor:pointer;
+}
+
+#loginBtn:hover,
+#logoutBtn:hover{
+  background:#ec4899;
+}
+
+.search-box{
+  position:relative;
+}
+
+.search{
+  width:100%;
+  padding:18px;
+  padding-right:60px; /* ←追加 */
+  border-radius:18px;
+  border:1px solid #27272a;
+  background:#18181b;
+  color:white;
+  font-size:16px;
+  margin-bottom:32px;
+  box-sizing:border-box;
+}
+
+.clear-btn{
+  position:absolute;
+  right:18px;
+  top:50%;
+  transform:translateY(calc(-50% - 16px));
+
+  width:28px;
+  height:28px;
+  border:none;
+  border-radius:50%;
+
+  background:#27272a;
+  color:#a1a1aa;
+  font-size:18px;
+  line-height:28px;
+
+  cursor:pointer;
+  transition:.2s;
+}
+
+.clear-btn:hover{
+  background:#ec4899;
+  color:white;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:24px;
+  align-items:start;
+}
+
+.cards {
+  display:grid;
+  gap:24px;
+}
+
+.card {
+  background:#18181b;
+  border:1px solid #27272a;
+  border-radius:28px;
+  overflow:hidden;
+}
+
+.card-header {
+  padding:28px;
+  background:linear-gradient(135deg,#ec489933,#8b5cf633,#06b6d433);
+}
+
+.date {
+  color:#d4d4d8;
+  font-size:14px;
+}
+
+.title {
+  font-size:30px;
+  font-weight:bold;
+  margin-top:10px;
+}
+
+.theme {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:12px;
+}
+
+.main-link {
+  display:inline-block;
+  margin-top:16px;
+  color:#f9a8d4;
+  text-decoration:none;
+}
+
+.song-list {
+  padding:24px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.song {
+  display:block;
+  background:#09090b;
+  border:1px solid #27272a;
+  padding:14px;
+  border-radius:16px;
+  color:white;
+  text-decoration:none;
+}
+
+.song:hover {
+  border-color:#ec4899;
+}
+
+.song-row{ 
+   display:flex; 
+   align-items:center; 
+   gap:12px; 
+} 
+
+.song{ 
+   flex:1; 
+} 
+
+.favorite-btn{ 
+   width:50px; 
+   height:50px; 
+   border:none; 
+   border-radius:16px; 
+   background:#09090b; 
+   border:1px solid #27272a; 
+   font-size:24px; 
+   cursor:pointer; 
+} 
+
+.favorite-btn:hover{ 
+   border-color:#a855f7; 
+}
+
+.panel {
+  background:#18181b;
+  border:1px solid #27272a;
+  border-radius:28px;
+  padding:24px;
+  margin-bottom:24px;
+}
+
+.ranking-box{
+  overflow-y:auto;
+  line-height:2;
+}
+
+.ranking-box::-webkit-scrollbar{
+  width:8px;
+}
+
+.ranking-box::-webkit-scrollbar-track{
+  background:#18181b;
+}
+
+.ranking-box::-webkit-scrollbar-thumb{
+  background:#3f3f46;
+  border-radius:999px;
+}
+
+.ranking-box::-webkit-scrollbar-thumb:hover{
+  background:#ec4899;
+}
+
+.ranking-total{
+  max-height:350px;   /* 10位くらいまで表示 */
+}
+
+.ranking-year{
+  max-height:160px;   /* 5位くらいまで表示 */
+}
+
+.tag {
+  cursor:pointer;
+  transition:.2s;
+  display:inline-block;
+  margin:6px;
+  padding:8px 14px;
+  border-radius:999px;
+  border:1px solid #27272a;
+  background:#09090b;
+}
+
+.tag:hover {
+  border-color:#ec4899;
+  color:#f9a8d4;
+}
+
+.tag-box{
+  display:flex;
+  flex-wrap:wrap;
+
+  max-height:160px; /* 3行くらいまで表示 */
+
+  overflow-y:auto;
+}
+
+.tag-box::-webkit-scrollbar{
+  width:8px;
+}
+
+.tag-box::-webkit-scrollbar-track{
+  background:#18181b;
+}
+
+.tag-box::-webkit-scrollbar-thumb{
+  background:#3f3f46;
+  border-radius:999px;
+}
+
+.tag-box::-webkit-scrollbar-thumb:hover{
+  background:#ec4899;
+}
+
+.stats {
+  line-height:2;
+}
+
+@media(max-width:900px) {
+  .grid {
+    grid-template-columns:1fr;
+  }
+
+  .song-list {
+    grid-template-columns:1fr;
+  }
+
+  .container {
+    padding:20px;
+  }
+
+  .card-header {
+    padding:20px;
+  }
+
+  .panel {
+    padding:20px;
+  }
+
+  .title {
+    font-size:24px;
+  }
+
+  h1 {
+    font-size:40px;
+  }
+}
