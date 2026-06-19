@@ -101,7 +101,7 @@ const songName =
 
 try { 
 
-if (e.target.textContent === '🤍') { 
+if (e.target.textContent.trim() === '🤍') { 
 
     e.target.textContent = '💜'; 
 
