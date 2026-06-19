@@ -63,22 +63,57 @@ document
 });
 
 // ログイン状態監視 
-onAuthStateChanged(auth, user => { 
+onAuthStateChanged(auth, async user => { 
 
   const userInfo = 
     document.getElementById('userInfo'); 
 
   if (user) { 
 
-     userInfo.innerHTML = ` 
-       ${user.displayName}<br> 
-       ${user.email} 
-     `; 
+    userInfo.innerHTML = ` 
+      ${user.displayName}<br> 
+      ${user.email} 
+    `; 
 
-  } else {userInfo.innerHTML = ` 
-       未ログイン 
-     `; 
+    const snap = 
+      await getDoc( 
+        doc(db, "users", user.uid) 
+      ); 
+
+    if (snap.exists()) { 
+
+      const favorites = 
+         snap.data().favorites || []; 
+
+      document 
+        .querySelectorAll('.song-row') 
+        .forEach(row => { 
+
+        const songName = 
+          row.querySelector('.song') 
+            .textContent 
+            .replace('▶', '') 
+            .trim(); 
+
+        const button = 
+           row.querySelector('.favorite-btn'); 
+
+        if (favorites.includes(songName)) { 
+           button.textContent = '💜'; 
+        } else { 
+           button.textContent = '🤍'; 
+        } 
+     }); 
+   }
+ 
+} else { 
+
+   userInfo.innerHTML = ` 
+     未ログイン 
+   `; 
+
   } 
+
 });
 
 document.addEventListener('click', async e => { 
