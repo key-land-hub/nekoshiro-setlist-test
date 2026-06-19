@@ -217,15 +217,3 @@ document.getElementById('clearSearch')
     search.focus()
 
 })
-
-document.addEventListener('click', e => {
-
-  if (!e.target.classList.contains('favorite-btn')) return;
-
-  if (e.target.textContent === '🤍') {
-    e.target.textContent = '💜';
-  } else {
-    e.target.textContent = '🤍';
-  }
-
-});
