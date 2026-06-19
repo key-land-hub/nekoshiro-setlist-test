@@ -17,7 +17,8 @@ import {
   doc, 
   setDoc, 
   getDoc, 
-  arrayUnion
+  arrayUnion, 
+  arrayRemove 
 } 
 from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
 
@@ -100,13 +101,31 @@ const songName =
 
 try { 
 
+if (e.target.textContent === '🤍') { 
+
+    e.target.textContent = '💜'; 
+
+    await setDoc( 
+      doc(db, "users", user.uid), 
+      { 
+         favorites: arrayUnion(songName) 
+       }, 
+       { merge: true } 
+    );
+ 
+} else { 
+
+  e.target.textContent = '🤍'; 
+
   await setDoc( 
-   doc(db, "users", user.uid), 
-   { 
-     favorites: arrayUnion(songName) 
-   }, 
-   { merge: true } 
-  ); 
+    doc(db, "users", user.uid), 
+    { 
+       favorites: arrayRemove(songName) 
+    }, 
+    { merge: true } 
+  );
+ 
+}
 
    console.log("保存成功:", songName); 
    } catch (error) { 
