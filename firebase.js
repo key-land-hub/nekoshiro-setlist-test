@@ -159,6 +159,14 @@ async function loadFavorites() {
   const favorites = 
      snap.data().favorites || []; 
 
+  const favoriteBox =
+     document.getElementById('favoriteSongs');
+
+  favoriteBox.innerHTML =
+    favorites.length
+      ? favorites.join('<br>')
+      : 'お気に入りはありません';
+
   document 
     .querySelectorAll('.song-row') 
     .forEach(row => { 
