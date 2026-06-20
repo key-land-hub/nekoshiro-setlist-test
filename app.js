@@ -171,6 +171,11 @@ function render(keyword='') {
 
       cards.appendChild(el)
     })
+
+   if (window.loadFavorites) { 
+      window.loadFavorites(); 
+   }
+
 }
 
 function normalizeDate(dateStr){
@@ -208,10 +213,6 @@ document.addEventListener('click', e => {
 })
 
 render()
-
-if (window.loadFavorites) { 
-   window.loadFavorites(); 
-}
 
 document.getElementById('clearSearch')
   .addEventListener('click', () => {
