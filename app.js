@@ -209,6 +209,10 @@ document.addEventListener('click', e => {
 
 render()
 
+document.dispatchEvent(
+  new Event('songsRendered')
+);
+
 document.getElementById('clearSearch')
   .addEventListener('click', () => {
 
