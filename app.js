@@ -209,6 +209,10 @@ document.addEventListener('click', e => {
 
 render()
 
+if (window.loadFavorites) { 
+   window.loadFavorites(); 
+}
+
 document.getElementById('clearSearch')
   .addEventListener('click', () => {
 

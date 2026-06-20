@@ -78,40 +78,6 @@ onAuthStateChanged(auth, async user => {
       ${user.email}
     `;
 
-    setTimeout(async () => { 
-
-      const snap = 
-        await getDoc( 
-          doc(db, "users", user.uid) 
-        ); 
-
-    if (!snap.exists()) return; 
-
-    const favorites = 
-      snap.data().favorites || []; 
-
-    document 
-      .querySelectorAll('.song-row') 
-      .forEach(row => { 
-
-        const songName = 
-          row.querySelector('.song') 
-            .textContent 
-            .replace('▶', '') 
-            .trim(); 
-
-        const button = 
-          row.querySelector('.favorite-btn'); 
-
-        button.textContent = 
-          favorites.includes(songName) 
-           ? '💜' 
-           : '🤍'; 
-
-     }); 
-
-   }, 500);
-
  } else { 
 
     currentUser = null;
@@ -175,3 +141,45 @@ if (e.target.textContent.trim() === '🤍') {
      console.error(error); 
    } 
 });
+
+// お気に入り復元 
+async function loadFavorites() { 
+
+  const user = auth.currentUser; 
+
+  if (!user) return; 
+
+  const snap = 
+     await getDoc( 
+       doc(db, "users", user.uid) 
+     ); 
+
+  if (!snap.exists()) return; 
+
+  const favorites = 
+     snap.data().favorites || []; 
+
+  document 
+    .querySelectorAll('.song-row') 
+    .forEach(row => { 
+
+    const songName = 
+      row.querySelector('.song') 
+        .textContent 
+        .replace('▶', '') 
+        .trim(); 
+
+    const button = 
+      row.querySelector('.favorite-btn'); 
+
+    button.textContent = 
+      favorites.includes(songName) 
+        ? '💜' 
+        : '🤍'; 
+
+   }); 
+
+} 
+
+// app.jsから呼べるようにする 
+window.loadFavorites = loadFavorites;
