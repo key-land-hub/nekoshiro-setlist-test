@@ -1,5 +1,7 @@
 /* firebase.js */
 
+let currentUser = null;
+
 import { initializeApp }
 from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
 
@@ -65,29 +67,32 @@ document
 // ログイン状態監視 
 onAuthStateChanged(auth, async user => { 
 
-  const userInfo = 
-    document.getElementById('userInfo'); 
+  const userInfo = document.getElementById('userInfo'); 
 
-  if (user) { 
+  if (user) {
 
-    userInfo.innerHTML = ` 
-      ${user.displayName}<br> 
-      ${user.email} 
-    `; 
+    currentUser = user;
 
-    const snap = 
-      await getDoc( 
-        doc(db, "users", user.uid) 
-      ); 
+    userInfo.innerHTML = `
+      ${user.displayName}<br>
+      ${user.email}
+    `;
 
-    if (snap.exists()) { 
+    setTimeout(async () => { 
 
-      const favorites = 
-         snap.data().favorites || []; 
+      const snap = 
+        await getDoc( 
+          doc(db, "users", user.uid) 
+        ); 
 
-      document 
-        .querySelectorAll('.song-row') 
-        .forEach(row => { 
+    if (!snap.exists()) return; 
+
+    const favorites = 
+      snap.data().favorites || []; 
+
+    document 
+      .querySelectorAll('.song-row') 
+      .forEach(row => { 
 
         const songName = 
           row.querySelector('.song') 
@@ -96,21 +101,24 @@ onAuthStateChanged(auth, async user => {
             .trim(); 
 
         const button = 
-           row.querySelector('.favorite-btn'); 
+          row.querySelector('.favorite-btn'); 
 
-        if (favorites.includes(songName)) { 
-           button.textContent = '💜'; 
-        } else { 
-           button.textContent = '🤍'; 
-        } 
+        button.textContent = 
+          favorites.includes(songName) 
+           ? '💜' 
+           : '🤍'; 
+
      }); 
-   }
- 
-} else { 
 
-   userInfo.innerHTML = ` 
-     未ログイン 
-   `; 
+   }, 500);
+
+ } else { 
+
+    currentUser = null;
+
+    userInfo.innerHTML = `
+      未ログイン
+    `; 
 
   } 
 
