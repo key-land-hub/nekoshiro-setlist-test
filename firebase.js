@@ -143,7 +143,9 @@ if (e.target.textContent.trim() === '🤍') {
 });
 
 // お気に入り復元 
-async function loadFavorites() { 
+async function loadFavorites() {
+
+  console.log("loadFavorites開始");
 
   const user = auth.currentUser; 
 
@@ -158,6 +160,8 @@ async function loadFavorites() {
 
   const favorites = 
      snap.data().favorites || []; 
+
+  console.log(favorites);
 
   const favoriteBox =
      document.getElementById('favoriteSongs');
