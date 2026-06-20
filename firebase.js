@@ -78,6 +78,8 @@ onAuthStateChanged(auth, async user => {
       ${user.email}
     `;
 
+    loadFavorites();
+
  } else { 
 
     currentUser = null;
