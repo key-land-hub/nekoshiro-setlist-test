@@ -116,28 +116,11 @@ h1 {
   color:white;
 }
 
-.grid{
-  display:grid;
-  gap:24px;
-  align-items:start;
-}
-
-/* PC */
-@media(min-width:901px){
-
-  .grid{
-    grid-template-columns:minmax(0,1fr) 320px;
-  }
-
-}
-
-/* スマホ */
-@media(max-width:900px){
-
-  .grid{
-    grid-template-columns:1fr !important;
-  }
-
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) 320px;
+  gap: 24px;
+  align-items: start;
 }
 
 .cards {
@@ -207,26 +190,25 @@ h1 {
   display:flex;
   align-items:center;
   gap:12px;
-
   width:100%;
   min-width:0;
 }
 
-.song{
-  flex:1;
-  min-width:0;
+.song{ 
+   flex:1; 
+   min-width:0;
+} 
 
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-
-.favorite-btn{
-  width:50px;
-  height:50px;
-
-  flex-shrink:0;
-}
+.favorite-btn{ 
+   width:50px; 
+   height:50px; 
+   border:none; 
+   border-radius:16px; 
+   background:#09090b; 
+   border:1px solid #27272a; 
+   font-size:24px; 
+   cursor:pointer; 
+} 
 
 .favorite-btn:hover{ 
    border-color:#a855f7; 
@@ -398,12 +380,8 @@ h1 {
 
   .sticky-header{
     overflow:hidden;
-    overflow:hidden;
   }
 
-  .song-row{
-    overflow:hidden;
-  }
   .grid {
     grid-template-columns:1fr;
   }
