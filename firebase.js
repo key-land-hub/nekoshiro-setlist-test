@@ -195,25 +195,18 @@ async function loadFavorites() {
   if (favorites.length) {
 
     favoriteBox.innerHTML =
-      favorites.map(songName => {
+      favorites.map(song => {
 
-        let songUrl = "#";
+        return `
+          <a href="${song.url}" target="_blank">
+            ${song.date}<br>
+            ${song.title}<br>
+            ${song.name}
+          </a>
+          <br><br>
+        `;
 
-        streams.forEach(stream => {
-          stream.songs.forEach(song => {
-            if (song.name === songName) {
-              songUrl = song.url;
-            }
-        });
-      });
-
-      return `
-        <a href="${songUrl}" target="_blank">
-          ${songName}
-        </a>
-      `;
-
-    }).join('<br>');
+      }).join('');
 
   } else {
 
@@ -234,10 +227,15 @@ async function loadFavorites() {
     const button = 
       row.querySelector('.favorite-btn'); 
 
-    button.textContent = 
-      favorites.includes(songName) 
-        ? '💜' 
-        : '🤍'; 
+    button.textContent =
+      favorites.some(
+        f =>
+          f.name === songName &&
+          f.date === row.dataset.date &&
+          f.url === row.dataset.url
+      )
+    ? '💜'
+    : '🤍';
 
    }); 
 
