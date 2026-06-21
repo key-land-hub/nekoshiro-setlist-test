@@ -126,9 +126,9 @@ const songUrl = row.dataset.url;
 
 try { 
 
-if (e.target.textContent.trim() === '🤍') { 
+  if (e.target.textContent.trim() === '🤍') {
 
-    e.target.textContent = '💜'; 
+    e.target.textContent = '💜';
 
     await setDoc(
       doc(db, "users", user.uid),
@@ -142,25 +142,27 @@ if (e.target.textContent.trim() === '🤍') {
       },
       { merge: true }
     );
- 
-} else { 
 
-  e.target.textContent = '🤍'; 
+  } else {
 
-  await setDoc( 
-    doc(db, "users", user.uid), 
-    { 
-       favorites: arrayRemove({
-         name: songName,
-         date: streamDate,
-         title: streamTitle,
-         url: songUrl
-       })
-    }, 
-    { merge: true } 
-  );
- 
-}
+    e.target.textContent = '🤍';
+
+    await setDoc(
+      doc(db, "users", user.uid),
+      {
+        favorites: arrayRemove({
+          name: songName,
+          date: streamDate,
+          title: streamTitle,
+          url: songUrl
+        })
+      },
+      { merge: true }
+    );
+
+   }
+
+   await loadFavorites();
 
    console.log("保存成功:", songName); 
    } catch (error) { 
