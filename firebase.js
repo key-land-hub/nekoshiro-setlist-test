@@ -78,13 +78,7 @@ onAuthStateChanged(auth, async user => {
       ${user.email}
     `;
 
-    setTimeout(() => {
-
-      if (window.loadFavorites) {
-        window.loadFavorites();
-      }
-
-  }, 500);
+    setTimeout(loadFavorites, 0);
 
  } else { 
 
