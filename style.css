@@ -357,6 +357,12 @@ h1 {
 
 @media(max-width:900px) {
 
+  .favorite-btn{
+    width:44px;
+    height:44px;
+    font-size:20px;
+  }
+
   .sticky-header{
     overflow:hidden;
   }
