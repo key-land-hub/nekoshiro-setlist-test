@@ -107,10 +107,10 @@ h1 {
 }
 
 .grid {
-  display:grid;
-  grid-template-columns:2fr 1fr;
-  gap:24px;
-  align-items:start;
+  display: grid;
+  grid-template-columns: minmax(0,1fr) 320px;
+  gap: 24px;
+  align-items: start;
 }
 
 .cards {
@@ -207,6 +207,7 @@ h1 {
   border-radius:28px;
   padding:24px;
   margin-bottom:24px;
+  min-width:0;
 }
 
 .ranking-box{
@@ -241,6 +242,7 @@ h1 {
 
 .favorite-box {
   max-height: 300px;
+  overflow-x:hidden;
   overflow-y: auto;
 }
 
@@ -250,6 +252,7 @@ h1 {
   border-radius: 10px;
   background: rgba(255,255,255,0.05);
   transition: 0.2s;
+  min-width:0;
 }
 
 .favorite-item:hover {
@@ -261,12 +264,12 @@ h1 {
 }
 
 .favorite-date{
-  font-size:0.85rem;
+  font-size:12px;
   color:#aaa;
 }
 
 .favorite-title{
-  font-size:0.85rem;
+  font-size:12px;
   color:#bbb;
   margin:4px 0 8px;
 
@@ -276,10 +279,14 @@ h1 {
 }
 
 .favorite-song{
+  display:block;
   color:#d18cff;
   text-decoration:none;
   font-weight:bold;
-  font-size:1rem;
+  
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .favorite-song:hover{
