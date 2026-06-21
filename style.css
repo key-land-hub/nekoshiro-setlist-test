@@ -244,6 +244,35 @@ h1 {
   overflow-y: auto;
 }
 
+.favorite-item{
+  padding:12px 0;
+  border-bottom:1px solid rgba(255,255,255,0.15);
+}
+
+.favorite-item:last-child{
+  border-bottom:none;
+}
+
+.favorite-date{
+  font-size:0.9rem;
+  color:#aaa;
+}
+
+.favorite-title{
+  font-size:0.9rem;
+  color:#ccc;
+  margin:3px 0 6px;
+}
+
+.favorite-song{
+  color:#c77dff;
+  text-decoration:none;
+}
+
+.favorite-song:hover{
+  text-decoration:underline;
+}
+
 .tag {
   cursor:pointer;
   transition:.2s;

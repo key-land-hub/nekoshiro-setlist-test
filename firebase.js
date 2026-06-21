@@ -202,15 +202,28 @@ async function loadFavorites() {
       favorites.map(song => {
 
         return `
-          <a href="${song.url}" target="_blank">
-            ${song.date}<br>
-            ${song.title}<br>
-            ${song.name}
-          </a>
-          <br><br>
-        `;
+          <div class="favorite-item">
 
-      }).join('');
+            <div class="favorite-date">
+               ${song.date}
+            </div>
+
+            <div class="favorite-title">
+               ${song.title}
+            </div>
+
+            <a
+              class="favorite-song"
+              href="${song.url}"
+              target="_blank"
+            >
+              ${song.name}
+            </a>
+
+         </div>
+      `;
+
+    }).join('');
 
   } else {
 
