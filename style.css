@@ -244,9 +244,16 @@ h1 {
   overflow-y: auto;
 }
 
-.favorite-item{
-  padding:12px 0;
-  border-bottom:1px solid rgba(255,255,255,0.15);
+.favorite-item {
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+  transition: 0.2s;
+}
+
+.favorite-item:hover {
+  background: rgba(255,255,255,0.1);
 }
 
 .favorite-item:last-child{
