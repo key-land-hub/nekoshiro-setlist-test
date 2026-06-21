@@ -1,7 +1,8 @@
 /* style.css */
 
-body {
+body{
   margin:0;
+  overflow-x:hidden;
   background:#09090b;
   color:#f4f4f5;
   font-family:Arial,sans-serif;
