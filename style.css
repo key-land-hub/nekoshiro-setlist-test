@@ -116,11 +116,28 @@ h1 {
   color:white;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: minmax(0,1fr) 320px;
-  gap: 24px;
-  align-items: start;
+.grid{
+  display:grid;
+  gap:24px;
+  align-items:start;
+}
+
+/* PC */
+@media(min-width:901px){
+
+  .grid{
+    grid-template-columns:minmax(0,1fr) 320px;
+  }
+
+}
+
+/* スマホ */
+@media(max-width:900px){
+
+  .grid{
+    grid-template-columns:1fr !important;
+  }
+
 }
 
 .cards {
