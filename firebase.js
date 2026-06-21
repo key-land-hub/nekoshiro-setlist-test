@@ -174,10 +174,34 @@ async function loadFavorites() {
   const favoriteBox =
      document.getElementById('favoriteSongs');
 
-  favoriteBox.innerHTML =
-    favorites.length
-      ? favorites.join('<br>')
-      : 'お気に入りはありません';
+  if (favorites.length) {
+
+    favoriteBox.innerHTML =
+      favorites.map(songName => {
+
+        let songUrl = "#";
+
+        streams.forEach(stream => {
+          stream.songs.forEach(song => {
+            if (song.name === songName) {
+              songUrl = song.url;
+            }
+        });
+      });
+
+      return `
+        <a href="${songUrl}" target="_blank">
+          ${songName}
+        </a>
+      `;
+
+    }).join('<br>');
+
+  } else {
+
+    favoriteBox.innerHTML = 'お気に入りはありません';
+
+  }
 
   document 
     .querySelectorAll('.song-row') 
