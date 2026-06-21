@@ -346,37 +346,29 @@ h1 {
 }
 
 @media(max-width:900px) {
-.grid {
-  grid-template-columns:1fr;
-}
+  .grid {
+    grid-template-columns:1fr;
+  }
 
-.song-list {
-  grid-template-columns:1fr;
-}
+  .song-list {
+    grid-template-columns:1fr;
+  }
 
-.container{
-  padding:0;
-}
+  .container {
+    padding:20px;
+  }
 
-.sticky-header{
-  padding:12px 20px 16px;
-}
+  .card-header {
+    padding:20px;
+  }
 
-.cards{
-  padding:20px;
-}
+  .panel {
+    padding:20px;
+  }
 
-.card-header {
-  padding:20px;
-}
-
-.panel {
-  padding:20px;
-}
-
-.title {
-  font-size:24px;
-}
+  .title {
+    font-size:24px;
+  }
 
   h1 {
     font-size:40px;
