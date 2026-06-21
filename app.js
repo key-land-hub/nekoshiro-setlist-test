@@ -155,7 +155,12 @@ function render(keyword='') {
 
         <div class="song-list">
           ${stream.songs.map(song => ` 
-            <div class="song-row"> 
+            <div
+              class="song-row"
+              data-date="${stream.date}"
+              data-title="${stream.title}"
+              data-url="${song.url}"
+            >
 
             <a class="song" href="${song.url}" target="_blank"> 
               ▶ ${song.type 

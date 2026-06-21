@@ -116,18 +116,31 @@ const songName =
     .replace('▶', '') 
     .trim(); 
 
+const row = e.target.parentElement;
+
+const streamDate = row.dataset.date;
+
+const streamTitle = row.dataset.title;
+
+const songUrl = row.dataset.url;
+
 try { 
 
 if (e.target.textContent.trim() === '🤍') { 
 
     e.target.textContent = '💜'; 
 
-    await setDoc( 
-      doc(db, "users", user.uid), 
-      { 
-         favorites: arrayUnion(songName) 
-       }, 
-       { merge: true } 
+    await setDoc(
+      doc(db, "users", user.uid),
+      {
+        favorites: arrayUnion({
+          name: songName,
+          date: streamDate,
+          title: streamTitle,
+          url: songUrl
+        })
+      },
+      { merge: true }
     );
  
 } else { 
@@ -137,7 +150,12 @@ if (e.target.textContent.trim() === '🤍') {
   await setDoc( 
     doc(db, "users", user.uid), 
     { 
-       favorites: arrayRemove(songName) 
+       favorites: arrayRemove({
+         name: songName,
+         date: streamDate,
+         title: streamTitle,
+         url: songUrl
+       })
     }, 
     { merge: true } 
   );
