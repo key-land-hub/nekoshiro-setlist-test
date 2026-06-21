@@ -192,6 +192,7 @@ streams.sort((a,b)=>{
 
 search.addEventListener('input', e => {
   render(e.target.value)
+
 })
 
 document.addEventListener('click', e => {
@@ -214,10 +215,18 @@ document.addEventListener('click', e => {
   render(search.value)
 })
 
-render()
-  if (window.loadFavorites) { 
-    window.loadFavorites(); 
+// タグ検索で再描画された時もハートを復元
+const originalRender = render
+
+render = function(keyword = '') {
+  originalRender(keyword)
+
+  if (window.loadFavorites) {
+    window.loadFavorites()
   }
+}
+
+render()
 
 document.getElementById('clearSearch')
   .addEventListener('click', () => {
