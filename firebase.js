@@ -204,26 +204,26 @@ async function loadFavorites() {
         return `
           <div class="favorite-item">
 
-            <div class="favorite-date">
-               ${song.date}
-            </div>
+          <div class="favorite-date">
+             ${song.date}
+          </div>
 
-            <div class="favorite-title">
-               ${song.title}
-            </div>
+          <div class="favorite-title">
+             ${song.title}
+          </div>
 
-            <a
-              class="favorite-song"
-              href="${song.url}"
-              target="_blank"
-            >
-              ${song.name}
-            </a>
+          <a
+             class="favorite-song"
+             href="${song.url}"
+             target="_blank"
+          >
+             💜 ${song.name}
+          </a>
 
-         </div>
+        </div>
       `;
 
-    }).join('');
+  }).join('');
 
   } else {
 
