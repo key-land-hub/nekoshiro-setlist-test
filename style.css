@@ -239,6 +239,11 @@ h1 {
   max-height:160px;   /* 5位くらいまで表示 */
 }
 
+.favorite-box {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
 .tag {
   cursor:pointer;
   transition:.2s;
