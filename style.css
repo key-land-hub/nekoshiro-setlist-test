@@ -12,13 +12,16 @@ body {
   top: 0;
   z-index: 1000;
 
+  width:100%;
+  box-sizing:border-box;
+
   background: rgba(9,9,11,.92);
   backdrop-filter: blur(12px);
 
-  padding-top: 12px;
-  padding-bottom: 16px;
+  padding-top:12px;
+  padding-bottom:16px;
 
-  border-bottom: 1px solid #27272a;
+  border-bottom:1px solid #27272a;
 }
 
 .container {
