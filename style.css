@@ -194,6 +194,7 @@ h1 {
 
 .song{ 
    flex:1; 
+   min-width:0;
 } 
 
 .favorite-btn{ 
