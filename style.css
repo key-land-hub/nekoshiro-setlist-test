@@ -357,10 +357,25 @@ h1 {
 
 @media(max-width:900px) {
 
+  #loginBtn,
+  #logoutBtn{
+    width:100%;
+  }
+
+  h1{
+    font-size:40px;
+    line-height:1.2;
+  }
+
   .favorite-btn{
     width:44px;
     height:44px;
     font-size:20px;
+  }
+
+  .account-bar{
+    flex-direction:column;
+    align-items:flex-start;
   }
 
   .sticky-header{
