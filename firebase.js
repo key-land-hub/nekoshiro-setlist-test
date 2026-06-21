@@ -175,24 +175,32 @@ async function loadFavorites() {
 
   console.log("loadFavorites開始");
 
-  const user = auth.currentUser; 
+  const user = auth.currentUser;
 
-  if (!user) return; 
+  if (!user) {
+    console.log("userなし");
+    return;
+  }
 
-  const snap = 
-     await getDoc( 
-       doc(db, "users", user.uid) 
-     ); 
+  const snap =
+    await getDoc(
+      doc(db, "users", user.uid)
+    );
 
-  if (!snap.exists()) return; 
+  if (!snap.exists()) {
+    console.log("snapなし");
+    return;
+  }
 
-  const favorites = 
-     snap.data().favorites || []; 
+  const favorites =
+    snap.data().favorites || [];
 
-  console.log(favorites);
+  console.log("favorites =", favorites);
 
   const favoriteBox =
-     document.getElementById('favoriteSongs');
+    document.getElementById('favoriteSongs');
+
+  console.log("favoriteBox =", favoriteBox);
 
   if (favorites.length) {
 

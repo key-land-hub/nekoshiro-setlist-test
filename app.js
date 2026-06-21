@@ -164,7 +164,8 @@ function render(keyword='') {
 
             <a class="song" href="${song.url}" target="_blank"> 
               ▶ ${song.type 
-                ? `${song.name} [${song.type}]` : song.name} 
+                ? `${song.name} [${song.type}]` 
+                : song.name} 
             </a> 
 
             <button class="favorite-btn">🤍</button>
