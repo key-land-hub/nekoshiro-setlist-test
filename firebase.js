@@ -74,8 +74,7 @@ onAuthStateChanged(auth, async user => {
     currentUser = user;
 
     userInfo.innerHTML = `
-      ${user.displayName}<br>
-      ${user.email}
+      🟢 ログイン中
     `;
 
     setTimeout(loadFavorites, 0);
