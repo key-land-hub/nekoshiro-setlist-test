@@ -34,6 +34,10 @@ body {
   padding:16px;
 }
 
+.title-sp{
+  display:none;
+}
+
 h1 {
   font-size:56px;
   margin-bottom:8px;
@@ -371,6 +375,14 @@ h1 {
   display:block;
   }
 
+  .title-pc{
+    display:none;
+  }
+
+  .title-sp{
+    display:block;
+  }
+
   h1{
     font-size:36px;
     line-height:1.2;
@@ -415,7 +427,4 @@ h1 {
     font-size:24px;
   }
 
-  h1 {
-    font-size:40px;
-  }
 }
