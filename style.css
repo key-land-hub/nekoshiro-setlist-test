@@ -412,3 +412,7 @@ h1 {
     font-size:40px;
   }
 }
+
+*{
+  outline:1px solid red;
+}
