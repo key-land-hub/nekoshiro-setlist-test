@@ -4,12 +4,12 @@
   box-sizing: border-box;
 }
 
-body{
-  margin:0;
-  overflow-x:hidden;
-  background:#09090b;
-  color:#f4f4f5;
-  font-family:Arial,sans-serif;
+body {
+  margin: 0;
+  background: #09090b;
+  color: #f4f4f5;
+  font-family: Arial,sans-serif;
+
   overflow-x: hidden;
 }
 
@@ -31,10 +31,11 @@ body{
   padding-bottom:16px;
 }
 
-.container {
+.container{
+  width:100%;
   max-width:1400px;
   margin:auto;
-  padding:32px;
+  padding:16px;
 }
 
 h1 {
