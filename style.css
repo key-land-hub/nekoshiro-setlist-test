@@ -420,3 +420,7 @@ h1 {
   }
 
 }
+
+*{
+  outline:1px solid red;
+}
