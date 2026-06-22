@@ -75,6 +75,10 @@ h1 {
   min-width:120px;
 }
 
+#logoutBtn{
+  display:none;
+}
+
 #loginBtn:hover,
 #logoutBtn:hover{
   background:#ec4899;
