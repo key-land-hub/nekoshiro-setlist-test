@@ -113,6 +113,10 @@ h1 {
   color:white;
 }
 
+.sp-only{
+  display:none;
+}
+
 .grid{
   display:grid;
   gap:24px;
@@ -363,8 +367,12 @@ h1 {
     width:100%;
   }
 
+  .sp-only{
+  display:block;
+  }
+
   h1{
-    font-size:40px;
+    font-size:36px;
     line-height:1.2;
   }
 
