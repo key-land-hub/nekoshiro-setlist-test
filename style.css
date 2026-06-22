@@ -117,11 +117,9 @@ h1 {
   color:white;
 }
 
-.grid {
-  display:block !important;
-  grid-template-columns: minmax(0,1fr) 320px;
-  gap: 24px;
-  align-items: start;
+.grid{
+  display:grid;
+  gap:24px;
 }
 
 .cards {
@@ -356,6 +354,12 @@ h1 {
   line-height:2;
 }
 
+@media(min-width:901px){
+  .grid{
+    grid-template-columns:minmax(0,1fr) 320px;
+  }
+}
+
 @media(max-width:900px) {
 
   #loginBtn,
@@ -383,17 +387,16 @@ h1 {
     overflow:hidden;
   }
 
-  .grid {
-    grid-template-columns:1fr;
+  .grid{
+    display:block;
   }
 
   .song-list {
     grid-template-columns:1fr;
   }
 
-  .container {
+  .container{
     padding:16px;
-    box-sizing:border-box;
   }
 
   .card-header {
@@ -411,8 +414,4 @@ h1 {
   h1 {
     font-size:40px;
   }
-}
-
-*{
-  outline:1px solid red;
 }
