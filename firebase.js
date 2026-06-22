@@ -2,6 +2,9 @@
 
 let currentUser = null;
 
+const loginBtn = document.getElementById('loginBtn');
+const logoutBtn = document.getElementById('logoutBtn');
+
 import { initializeApp }
 from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
 
@@ -77,17 +80,25 @@ onAuthStateChanged(auth, async user => {
       🟢 ログイン中
     `;
 
+    // ログイン中
+    loginBtn.style.display = 'none';
+    logoutBtn.style.display = 'inline-block';
+
     setTimeout(loadFavorites, 0);
 
- } else { 
+  } else {
 
     currentUser = null;
 
     userInfo.innerHTML = `
       未ログイン
-    `; 
+    `;
 
-  } 
+    // ログアウト中
+    loginBtn.style.display = 'inline-block';
+    logoutBtn.style.display = 'none';
+
+  }
 
 });
 
