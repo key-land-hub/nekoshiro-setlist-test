@@ -2,7 +2,7 @@
 
 let currentUser = null;
 
-sconst loginBtn = document.getElementById('loginBtn');
+const loginBtn = document.getElementById('loginBtn');
 const logoutBtn = document.getElementById('logoutBtn');
 
 import { initializeApp }

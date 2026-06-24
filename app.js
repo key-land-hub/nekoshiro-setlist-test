@@ -3,43 +3,20 @@
 const cards = document.getElementById('cards'); 
 const sidePanel = document.getElementById('sidePanel'); 
 
-const showBoth = document.getElementById('showBoth'); 
-const showSongs = document.getElementById('showSongs'); 
-const showStats = document.getElementById('showStats'); 
-
-const buttons = document.querySelectorAll('.view-buttons button'); 
-
-function setActiveButton(button){ 
-  buttons.forEach(b => { 
-     b.classList.remove('active-view'); 
-  }); 
-
-  button.classList.add('active-view'); 
-} 
-
-showBoth.onclick = () => { 
+document.getElementById('showBoth').onclick = () => { 
   cards.style.display = ''; 
   sidePanel.style.display = ''; 
-
-  setActiveButton(showBoth); 
 }; 
 
-showSongs.onclick = () => { 
+document.getElementById('showSongs').onclick = () => { 
   cards.style.display = ''; 
   sidePanel.style.display = 'none'; 
-
-  setActiveButton(showSongs); 
 }; 
 
-showStats.onclick = () => { 
+document.getElementById('showStats').onclick = () => { 
   cards.style.display = 'none'; 
   sidePanel.style.display = ''; 
-
-  setActiveButton(showStats); 
 };
-
-// 初期状態
-setActiveButton(showBoth);
 
 const cards = document.getElementById('cards')
 

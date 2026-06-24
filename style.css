@@ -128,8 +128,9 @@ h1 {
 
 .view-buttons{
   display:flex;
-  gap:10px;
+  gap:12px;
   flex-wrap:wrap;
+  margin-bottom:20px;
 }
 
 .view-buttons button{
@@ -139,19 +140,6 @@ h1 {
   background:#27272a;
   color:white;
   cursor:pointer;
-  transition:.2s;
-}
-
-.view-buttons button:hover{
-  background:#ec4899;
-}
-
-.active-view{
-  background:#ec4899 !important;
-}
-
-.view-buttons button.active-view{ 
-  background:#ec4899; 
 }
 
 .view-buttons button:hover{
@@ -460,10 +448,4 @@ h1 {
     line-height:1.2;
   }
 
-}
-
-@media (hover:none){
-  .view-buttons button:hover{
-    background:#27272a;
-  }
 }
