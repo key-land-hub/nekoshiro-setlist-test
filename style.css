@@ -128,31 +128,26 @@ h1 {
 
 .view-buttons{
   display:flex;
-  gap:12px;
+  gap:10px;
   flex-wrap:wrap;
-  margin-bottom:20px;
 }
 
-.view-buttons button{ 
-  background:#27272a; 
-  color:white; 
-  border:none; 
-  border-radius:14px; 
-  padding:10px 16px; 
-  cursor:pointer; 
-  transition:.2s; 
+.view-buttons button{
+  padding:10px 16px;
+  border:none;
+  border-radius:14px;
+  background:#27272a;
+  color:white;
+  cursor:pointer;
+  transition:.2s;
 }
 
-@media (hover:hover) {
-  .view-buttons button:hover{
-    background:#ec4899;
-    color:white;
-  }
-} 
+.view-buttons button:hover{
+  background:#ec4899;
+}
 
 .active-view{
-  background:#ec4899;
-  color:white;
+  background:#ec4899 !important;
 }
 
 .view-buttons button.active-view{ 
@@ -465,4 +460,10 @@ h1 {
     line-height:1.2;
   }
 
+}
+
+@media (hover:none){
+  .view-buttons button:hover{
+    background:#27272a;
+  }
 }

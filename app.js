@@ -38,6 +38,9 @@ showStats.onclick = () => {
   setActiveButton(showStats); 
 };
 
+// 初期状態
+setActiveButton(showBoth);
+
 const cards = document.getElementById('cards')
 
 const search = document.getElementById('search')
