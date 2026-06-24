@@ -3,27 +3,16 @@
 const cards = document.getElementById('cards'); 
 const sidePanel = document.getElementById('sidePanel'); 
 
-document.getElementById('showBoth').onclick = () => { 
-  cards.style.display = ''; 
-  sidePanel.style.display = ''; 
-}; 
-
-document.getElementById('showSongs').onclick = () => { 
-  cards.style.display = ''; 
-  sidePanel.style.display = 'none'; 
-}; 
-
-document.getElementById('showStats').onclick = () => { 
-  cards.style.display = 'none'; 
-  sidePanel.style.display = ''; 
-};
+const showBoth = document.getElementById('showBoth'); 
+const showSongs = document.getElementById('showSongs'); 
+const showStats = document.getElementById('showStats'); 
 
 const buttons = document.querySelectorAll('.view-buttons button'); 
 
 function setActiveButton(button){ 
-  buttons.forEach(b => 
-    b.classList.remove('active-view') 
-  ); 
+  buttons.forEach(b => { 
+     b.classList.remove('active-view'); 
+  }); 
 
   button.classList.add('active-view'); 
 } 

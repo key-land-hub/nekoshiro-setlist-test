@@ -143,11 +143,17 @@ h1 {
   transition:.2s; 
 }
 
-@media (hover:hover){ 
-   .view-buttons button:hover{ 
-     background:#ec4899; 
-  } 
+@media (hover:hover) {
+  .view-buttons button:hover{
+    background:#ec4899;
+    color:white;
+  }
 } 
+
+.active-view{
+  background:#ec4899;
+  color:white;
+}
 
 .view-buttons button.active-view{ 
   background:#ec4899; 
