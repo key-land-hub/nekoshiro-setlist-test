@@ -133,13 +133,24 @@ h1 {
   margin-bottom:20px;
 }
 
-.view-buttons button{
-  padding:10px 16px;
-  border:none;
-  border-radius:14px;
-  background:#27272a;
-  color:white;
-  cursor:pointer;
+.view-buttons button{ 
+  background:#27272a; 
+  color:white; 
+  border:none; 
+  border-radius:14px; 
+  padding:10px 16px; 
+  cursor:pointer; 
+  transition:.2s; 
+}
+
+@media (hover:hover){ 
+   .view-buttons button:hover{ 
+     background:#ec4899; 
+  } 
+} 
+
+.view-buttons button.active-view{ 
+  background:#ec4899; 
 }
 
 .view-buttons button:hover{

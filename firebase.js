@@ -2,25 +2,7 @@
 
 let currentUser = null;
 
-const cards = document.getElementById('cards'); 
-const sidePanel = document.getElementById('sidePanel'); 
-
-document.getElementById('showBoth').onclick = () => { 
-  cards.style.display = ''; 
-  sidePanel.style.display = ''; 
-}; 
-
-document.getElementById('showSongs').onclick = () => { 
-  cards.style.display = ''; 
-  sidePanel.style.display = 'none'; 
-}; 
-
-document.getElementById('showStats').onclick = () => { 
-  cards.style.display = 'none'; 
-  sidePanel.style.display = ''; 
-};
-
-const loginBtn = document.getElementById('loginBtn');
+sconst loginBtn = document.getElementById('loginBtn');
 const logoutBtn = document.getElementById('logoutBtn');
 
 import { initializeApp }
