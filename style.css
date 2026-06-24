@@ -126,6 +126,26 @@ h1 {
   color:white;
 }
 
+.view-buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:20px;
+}
+
+.view-buttons button{
+  padding:10px 16px;
+  border:none;
+  border-radius:14px;
+  background:#27272a;
+  color:white;
+  cursor:pointer;
+}
+
+.view-buttons button:hover{
+  background:#ec4899;
+}
+
 .grid{
   display:grid;
   gap:24px;
