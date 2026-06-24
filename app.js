@@ -18,8 +18,6 @@ document.getElementById('showStats').onclick = () => {
   sidePanel.style.display = ''; 
 };
 
-const cards = document.getElementById('cards')
-
 const search = document.getElementById('search')
 
 const totalStreams = streams.length
