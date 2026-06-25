@@ -13,11 +13,15 @@ document.getElementById('showBoth').onclick = () => {
   statsPanel.style.display = '';
   favoritePanel.style.display = '';
   tagPanel.style.display = '';
+
+  localStorage.setItem('viewMode', 'both');
 };
 
 document.getElementById('showSongs').onclick = () => {
   cards.style.display = '';
   sidePanel.style.display = 'none';
+
+  localStorage.setItem('viewMode', 'songs');
 };
 
 document.getElementById('showStats').onclick = () => {
@@ -27,6 +31,8 @@ document.getElementById('showStats').onclick = () => {
   statsPanel.style.display = '';
   favoritePanel.style.display = 'none';
   tagPanel.style.display = 'none';
+
+  localStorage.setItem('viewMode', 'stats');
 };
 
 document.getElementById('showFavorites').onclick = () => {
@@ -36,6 +42,8 @@ document.getElementById('showFavorites').onclick = () => {
   statsPanel.style.display = 'none';
   favoritePanel.style.display = '';
   tagPanel.style.display = 'none';
+
+  localStorage.setItem('viewMode', 'favorites');
 };
 
 document.getElementById('showTags').onclick = () => {
@@ -45,6 +53,8 @@ document.getElementById('showTags').onclick = () => {
   statsPanel.style.display = 'none';
   favoritePanel.style.display = 'none';
   tagPanel.style.display = '';
+
+  localStorage.setItem('viewMode', 'tags');
 };
 
 const search = document.getElementById('search')
@@ -269,6 +279,30 @@ render = function(keyword = '') {
   if (window.loadFavorites) {
     window.loadFavorites()
   }
+}
+
+const savedMode = localStorage.getItem('viewMode');
+
+switch(savedMode){
+
+  case 'songs':
+    document.getElementById('showSongs').click();
+    break;
+
+  case 'stats':
+    document.getElementById('showStats').click();
+    break;
+
+  case 'favorites':
+    document.getElementById('showFavorites').click();
+    break;
+
+  case 'tags':
+    document.getElementById('showTags').click();
+    break;
+
+  default:
+    document.getElementById('showBoth').click();
 }
 
 render()
