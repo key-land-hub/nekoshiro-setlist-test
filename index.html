@@ -56,8 +56,10 @@
 
   <div class="view-buttons"> 
     <button id="showBoth">全表示</button> 
-    <button id="showSongs">🎵歌枠一覧のみ</button> 
-    <button id="showStats">📊統計・ランキングのみ</button> 
+    <button id="showSongs">🎵歌枠</button> 
+    <button id="showStats">📊統計</button> 
+    <button id="showFavorites">💜お気に入り</button> 
+    <button id="showTags">🏷タグのみ</button> 
   </div>
 
  </div>
@@ -102,8 +104,11 @@
       <div id="ranking2024"></div>
       </div>
       </div>
+   </div>
 
-      <div class="panel">
+   <div id="favoritePanel"> 
+
+      <div class="panel"> 
       <h2>💜お気に入り曲</h2>
 
       <div class="ranking-box favorite-box">
@@ -122,6 +127,9 @@
        </div> 
       </div> 
       </div>
+   </div>
+
+   <div id="tagPanel"> 
 
       <div class="panel">
         <h2>タグ</h2>
@@ -145,8 +153,10 @@
         <div class="tag clickable-tag">バラード</div>
         <div class="tag clickable-tag">アニソン</div>
 
-     </div> 
-    </div>
+        </div> 
+      </div>
+   </div>
+
   </div>
  </div>
 </div>

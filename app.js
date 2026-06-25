@@ -2,20 +2,49 @@
 
 const cards = document.getElementById('cards'); 
 const sidePanel = document.getElementById('sidePanel'); 
+const statsPanel = document.getElementById('statsPanel');
+const favoritePanel = document.getElementById('favoritePanel');
+const tagPanel = document.getElementById('tagPanel');
 
-document.getElementById('showBoth').onclick = () => { 
-  cards.style.display = ''; 
-  sidePanel.style.display = ''; 
-}; 
+document.getElementById('showBoth').onclick = () => {
+  cards.style.display = '';
+  sidePanel.style.display = '';
 
-document.getElementById('showSongs').onclick = () => { 
-  cards.style.display = ''; 
-  sidePanel.style.display = 'none'; 
-}; 
+  statsPanel.style.display = '';
+  favoritePanel.style.display = '';
+  tagPanel.style.display = '';
+};
 
-document.getElementById('showStats').onclick = () => { 
-  cards.style.display = 'none'; 
-  sidePanel.style.display = ''; 
+document.getElementById('showSongs').onclick = () => {
+  cards.style.display = '';
+  sidePanel.style.display = 'none';
+};
+
+document.getElementById('showStats').onclick = () => {
+  cards.style.display = 'none';
+  sidePanel.style.display = '';
+
+  statsPanel.style.display = '';
+  favoritePanel.style.display = 'none';
+  tagPanel.style.display = 'none';
+};
+
+document.getElementById('showFavorites').onclick = () => {
+  cards.style.display = 'none';
+  sidePanel.style.display = '';
+
+  statsPanel.style.display = 'none';
+  favoritePanel.style.display = '';
+  tagPanel.style.display = 'none';
+};
+
+document.getElementById('showTags').onclick = () => {
+  cards.style.display = 'none';
+  sidePanel.style.display = '';
+
+  statsPanel.style.display = 'none';
+  favoritePanel.style.display = 'none';
+  tagPanel.style.display = '';
 };
 
 const search = document.getElementById('search')
