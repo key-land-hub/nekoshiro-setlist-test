@@ -249,8 +249,7 @@ async function loadFavorites() {
     .forEach(row => { 
 
   const songName =
-   e.target.parentElement
-    .querySelector('.song')
+   row.querySelector('.song')
     .textContent
     .replace('▶','')
     .replace(/\[.*?\]/,'')
