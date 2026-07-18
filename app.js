@@ -316,4 +316,27 @@ document.getElementById('clearSearch')
 
 })
 
+document.addEventListener("click", async e => {
 
+  const song = e.target.closest(".song");
+
+  if (!song) return;
+
+  const row = song.closest(".song-row");
+
+  await window.addSongClick({
+
+    name: song.textContent
+      .replace("▶","")
+      .replace(/\[.*?\]/,"")
+      .trim(),
+
+    date: row.dataset.date,
+
+    title: row.dataset.title,
+
+    url: row.dataset.url
+
+  });
+
+});

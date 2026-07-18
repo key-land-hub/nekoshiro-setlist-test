@@ -248,11 +248,13 @@ async function loadFavorites() {
     .querySelectorAll('.song-row') 
     .forEach(row => { 
 
-    const songName = 
-      row.querySelector('.song') 
-        .textContent 
-        .replace('▶', '') 
-        .trim(); 
+  const songName =
+   e.target.parentElement
+    .querySelector('.song')
+    .textContent
+    .replace('▶','')
+    .replace(/\[.*?\]/,'')
+    .trim();
 
     const button = 
       row.querySelector('.favorite-btn'); 
@@ -274,7 +276,9 @@ async function loadFavorites() {
 async function addSongClick(song) {
 
   const docId =
-    song.date.replaceAll('/', '') + '_' + song.name;
+    song.date.replaceAll('/','') + "_" +
+    song.title + "_" +
+    song.name;
 
   const ref = doc(db, "songStats", docId);
 
