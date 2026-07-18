@@ -18,13 +18,16 @@ import {
 from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
 
 import { 
-  getFirestore, 
-  doc, 
-  setDoc, 
-  getDoc, 
-  arrayUnion, 
-  arrayRemove 
-} 
+  getFirestore,
+  doc,
+  setDoc,
+  getDoc,
+  updateDoc,
+  increment,
+  serverTimestamp,
+  arrayUnion,
+  arrayRemove
+}
 from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
 
 const firebaseConfig = { 
@@ -268,5 +271,50 @@ async function loadFavorites() {
 
 } 
 
+async function addSongClick(song) {
+
+  const docId =
+    song.date.replaceAll('/', '') + '_' + song.name;
+
+  const ref = doc(db, "songStats", docId);
+
+  const snap = await getDoc(ref);
+
+  if (!snap.exists()) {
+
+    await setDoc(ref, {
+
+      id: docId,
+
+      name: song.name,
+      date: song.date,
+      title: song.title,
+      url: song.url,
+
+      clicks: 1,
+      favorites: 0,
+
+      createdAt: serverTimestamp(),
+      updatedAt: serverTimestamp()
+
+    });
+
+  } else {
+
+    await updateDoc(ref, {
+
+      clicks: increment(1),
+
+      updatedAt: serverTimestamp(),
+
+      lastClickedAt: serverTimestamp()
+
+    });
+
+  }
+
+}
+
 // app.jsから呼べるようにする 
 window.loadFavorites = loadFavorites;
+window.addSongClick = addSongClick;
