@@ -281,6 +281,35 @@ h1 {
   max-height:160px;   /* 5位くらいまで表示 */
 }
 
+/* 再生数ランキング */
+.ranking-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:10px 0;
+
+  border-bottom:1px solid #27272a;
+}
+
+.ranking-item:last-child{
+  border-bottom:none;
+}
+
+.ranking-name{
+  font-weight:bold;
+  color:#fff;
+
+  flex:1;
+}
+
+.ranking-count{
+  color:#f472b6;
+  font-weight:bold;
+  margin-left:12px;
+  white-space:nowrap;
+}
+
 .favorite-box {
   max-height: 300px;
   overflow-x:hidden;

@@ -26,7 +26,12 @@ import {
   increment,
   serverTimestamp,
   arrayUnion,
-  arrayRemove
+  arrayRemove,
+  collection,
+  getDocs,
+  query,
+  orderBy,
+  limit
 }
 from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
 
@@ -316,8 +321,68 @@ async function addSongClick(song) {
 
   }
 
+  if (window.loadClickRanking) {
+    window.loadClickRanking();
+  }
+
+}
+
+async function loadClickRanking() {
+
+  const rankingBox =
+    document.getElementById("clickRanking");
+
+  const snap = await getDocs(
+    collection(db, "songStats")
+  );
+
+  const counts = {};
+
+  snap.forEach(doc => {
+
+    const song = doc.data();
+
+    if (!counts[song.name]) {
+
+      counts[song.name] = {
+        clicks: 0,
+        favorites: 0
+      };
+
+    }
+
+    counts[song.name].clicks += song.clicks || 0;
+    counts[song.name].favorites += song.favorites || 0;
+
+  });
+
+  const ranking =
+    Object.entries(counts)
+      .sort((a,b)=>
+        b[1].clicks-a[1].clicks
+      )
+      .slice(0,20);
+
+  rankingBox.innerHTML =
+    ranking.map((item,index)=>`
+
+      <div class="ranking-item">
+
+        <div class="ranking-name">
+          ${index+1}. ${item[0]}
+        </div>
+
+        <div class="ranking-count">
+          ▶ ${item[1].clicks}回
+        </div>
+
+      </div>
+
+    `).join('');
+
 }
 
 // app.jsから呼べるようにする 
 window.loadFavorites = loadFavorites;
 window.addSongClick = addSongClick;
+window.loadClickRanking = loadClickRanking;
