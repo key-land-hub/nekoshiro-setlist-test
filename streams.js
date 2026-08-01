@@ -1084,9 +1084,9 @@ const streams = [
 "theme": ["横枠"], 
 "url": "https://www.youtube.com/watch?v=jsIntrGfcLE&t=0s", 
 "songs": [
-{"name": "踊り子", "url": "https://www.youtube.com/watch?v=jsIntrGfcLE&t=5m1s"},
+{"name": "踊り子", "url": "https://www.youtube.com/watch?v=jsIntrGfcLE&t=5m2s"},
 {"name": "きらり", "url": "https://www.youtube.com/watch?v=jsIntrGfcLE&t=12m18s"},
-{"name": "ウミユリ海底譚", "url": "https://www.youtube.com/watch?v=jsIntrGfcLE&t=18m14s"},
+{"name": "ウミユリ海底譚", "url": "https://www.youtube.com/watch?v=jsIntrGfcLE&t=18m15s"},
 {"name": "RAIN", "url": "https://www.youtube.com/watch?v=jsIntrGfcLE&t=24m55s"},
 {"name": "いかないで", "url": "https://www.youtube.com/watch?v=jsIntrGfcLE&t=33m0s"},
 {"name": "雨とペトラ", "url": "https://www.youtube.com/watch?v=jsIntrGfcLE&t=38m59s"},
