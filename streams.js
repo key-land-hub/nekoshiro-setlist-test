@@ -1077,6 +1077,20 @@ const streams = [
 {"name": "きゅうくらりん", "url": "https://www.youtube.com/watch?v=MbFYxtfLoyY&t=43m25s"},
 {"name": "ロミオとシンデレラ", "url": "https://www.youtube.com/watch?v=MbFYxtfLoyY&t=49m41s"},
 {"name": "ワールドイズマイン", "url": "https://www.youtube.com/watch?v=MbFYxtfLoyY&t=56m30s"},
-{"name": "白い雪のプリンセスは", "url": "https://www.youtube.com/watch?v=MbFYxtfLoyY&t=1h3m33s"}]}
+{"name": "白い雪のプリンセスは", "url": "https://www.youtube.com/watch?v=MbFYxtfLoyY&t=1h3m33s"}]}, 
+
+{"date": "2026/07/30", 
+"title": "【歌枠｜KARAOKE】7月のお歌💠中低音女子が梅雨と夏の曲多めに歌う🎙", 
+"theme": ["横枠"], 
+"url": "https://www.youtube.com/watch?v=jsIntrGfcLE&t=0s", 
+"songs": [
+{"name": "踊り子", "url": "https://www.youtube.com/watch?v=jsIntrGfcLE&t=5m1s"},
+{"name": "きらり", "url": "https://www.youtube.com/watch?v=jsIntrGfcLE&t=12m18s"},
+{"name": "ウミユリ海底譚", "url": "https://www.youtube.com/watch?v=jsIntrGfcLE&t=18m14s"},
+{"name": "RAIN", "url": "https://www.youtube.com/watch?v=jsIntrGfcLE&t=24m55s"},
+{"name": "いかないで", "url": "https://www.youtube.com/watch?v=jsIntrGfcLE&t=33m0s"},
+{"name": "雨とペトラ", "url": "https://www.youtube.com/watch?v=jsIntrGfcLE&t=38m59s"},
+{"name": "とても素敵な六月でした", "url": "https://www.youtube.com/watch?v=jsIntrGfcLE&t=45m34s"},
+{"name": "サマータイムレコード", "url": "https://www.youtube.com/watch?v=jsIntrGfcLE&t=53m1s"}]}
 
 ];
