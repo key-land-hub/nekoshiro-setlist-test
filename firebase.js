@@ -75,10 +75,10 @@ document
   signOut(auth); 
 });
 
-// ログイン状態監視 
-onAuthStateChanged(auth, async user => { 
+// ログイン状態監視
+onAuthStateChanged(auth, async user => {
 
-  const userInfo = document.getElementById('userInfo'); 
+  const userInfo = document.getElementById('userInfo');
 
   if (user) {
 
@@ -93,6 +93,8 @@ onAuthStateChanged(auth, async user => {
     logoutBtn.style.display = 'inline-block';
 
     setTimeout(loadFavorites, 0);
+    setTimeout(loadClickRanking, 0);
+    setTimeout(loadFavoriteRanking, 0);
 
   } else {
 
@@ -136,7 +138,7 @@ const streamTitle = row.dataset.title;
 
 const songUrl = row.dataset.url;
 
-try { 
+try {
 
   if (e.target.textContent.trim() === '🤍') {
 
@@ -155,6 +157,16 @@ try {
       { merge: true }
     );
 
+    await updateSongFavorite({
+      name: songName,
+      date: streamDate,
+      title: streamTitle,
+      url: songUrl
+    }, 1);
+
+    await loadFavorites();
+    await loadFavoriteRanking();
+
   } else {
 
     e.target.textContent = '🤍';
@@ -172,9 +184,17 @@ try {
       { merge: true }
     );
 
-   }
+    await updateSongFavorite({
+      name: songName,
+      date: streamDate,
+      title: streamTitle,
+      url: songUrl
+    }, -1);
 
-   await loadFavorites();
+    await loadFavorites();
+    await loadFavoriteRanking();
+
+  }
 
    console.log("保存成功:", songName); 
    } catch (error) { 
@@ -321,6 +341,50 @@ async function addSongClick(song) {
 
   }
 
+async function updateSongFavorite(song, value) {
+
+  const docId =
+    song.date.replaceAll("/", "") + "_" +
+    song.title + "_" +
+    song.name;
+
+  const ref = doc(db, "songStats", docId);
+
+  const snap = await getDoc(ref);
+
+  if (!snap.exists()) {
+
+    await setDoc(ref, {
+
+      id: docId,
+
+      name: song.name,
+      date: song.date,
+      title: song.title,
+      url: song.url,
+
+      clicks: 0,
+      favorites: Math.max(value, 0),
+
+      createdAt: serverTimestamp(),
+      updatedAt: serverTimestamp()
+
+    });
+
+  } else {
+
+    await updateDoc(ref, {
+
+      favorites: increment(value),
+
+      updatedAt: serverTimestamp()
+
+    });
+
+  }
+
+}
+
   if (window.loadClickRanking) {
     window.loadClickRanking();
   }
@@ -382,7 +446,62 @@ async function loadClickRanking() {
 
 }
 
+async function loadFavoriteRanking(){
+
+  const rankingBox =
+    document.getElementById("favoriteRanking");
+
+  const snap = await getDocs(
+    collection(db,"songStats")
+  );
+
+  const counts = {};
+
+  snap.forEach(doc=>{
+
+    const song = doc.data();
+
+    if(!counts[song.name]){
+
+      counts[song.name] = {
+        favorites:0
+      };
+
+    }
+
+    counts[song.name].favorites +=
+      song.favorites || 0;
+
+  });
+
+  const ranking =
+    Object.entries(counts)
+      .sort((a,b)=>
+        b[1].favorites-a[1].favorites
+      )
+      .slice(0,20);
+
+  rankingBox.innerHTML =
+    ranking.map((item,index)=>`
+
+      <div class="ranking-item">
+
+        <div class="ranking-name">
+          ${index+1}. ${item[0]}
+        </div>
+
+        <div class="ranking-count">
+          💜 ${item[1].favorites}人
+        </div>
+
+      </div>
+
+    `).join('');
+
+}
+
 // app.jsから呼べるようにする 
 window.loadFavorites = loadFavorites;
 window.addSongClick = addSongClick;
 window.loadClickRanking = loadClickRanking;
+window.loadFavoriteRanking = loadFavoriteRanking;
